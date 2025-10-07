@@ -6,13 +6,15 @@
         prendasMostradas: Prenda[];
     }>();
     
-
+    console.log(props.prendasMostradas)
 </script>
 
 <template>
     <div class="container">
-        <div class="md:flex-row sm:flex-col">
-            <PrendaItem v-for="prendas in props.prendasMostradas"/>
+        <div class="grid">
+            <div class="md:flex-row sm:flex-col">
+                <PrendaItem v-for="prenda in prendasMostradas" :prenda/>
+            </div>
         </div>
     </div>
 </template>

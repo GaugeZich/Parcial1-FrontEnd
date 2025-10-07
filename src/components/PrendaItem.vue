@@ -1,5 +1,11 @@
 <script setup lang="ts">
+import type { Prenda } from '@/models/Prenda';
+
     
+    const props = defineProps<{
+        prenda: Prenda
+    }>();
+
     
 
 </script>
@@ -7,12 +13,12 @@
 <template >
     <div class="card">
         <li>
-            <ul>ID: {{}}</ul>
-            <ul>Nombre:</ul>
-            <ul>Talle:</ul>
-            <ul>Color:</ul>
-            <ul>Precio:</ul>
-            <ul>Stock:</ul>
+            <ul>ID: {{ prenda.id }}</ul>
+            <ul>Nombre: {{ prenda.nombre }}</ul>
+            <ul>Talle: {{ prenda.talle }}</ul>
+            <ul>Color: {{ prenda.color }} </ul>
+            <ul>Precio: {{ prenda.precio }}</ul>
+            <ul>Stock: {{ prenda.stock }}</ul>
         </li>
     </div>
 </template>
@@ -23,6 +29,7 @@
         align-items: right;
         border: 1px;
         border-color: black;
+        margin: 15px;
     }
 
     .no-stock{
