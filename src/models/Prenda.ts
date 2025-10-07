@@ -1,5 +1,5 @@
 export interface Prenda {
-    id: string,
+    id: number,
     nombre: string,
     talle: string,
     color: string,
