@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import type { Prenda } from '@/models/Prenda';
-
     
     const props = defineProps<{
         prenda: Prenda
     }>();
-
-    
 
 </script>
 
