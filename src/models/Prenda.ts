@@ -6,3 +6,7 @@ export interface Prenda {
     precio: number,
     stock: number
 }
+
+defineProps<{
+    prendasMostradas: Prenda[];
+}>();
