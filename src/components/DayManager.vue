@@ -44,7 +44,8 @@ const dias: WeekDay[] = [
 
 const diaSelected = ref<(WeekDay[])>([...dias])
 
-const classSelected: string = 'bg-blue-500 text-gray-50'
+const classSelected: string = 'bg-blue-500 text-gray-50 hover:bg-blue-600'
+const classHoverUnselected: string = 'hover:bg-gray-100'
 
 const SeleccionarDia = (dia: number):void => {
     diaSelected.value.forEach(element => {
@@ -59,20 +60,21 @@ const SeleccionarDia = (dia: number):void => {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container items-center">
         <div class="title">
-            <h1>Dias de la semana</h1>
+            <h1>Gestor de dias de la semana</h1>
         </div>
-        <div class="botones">
+        <div class="flex place-content-center flex-wrap mb-3">
             <button v-for="diaSeleccionado in diaSelected"
             :class="{
-                [classSelected]: diaSeleccionado.selected === true
+                [classSelected]: diaSeleccionado.selected === true,
+                [classHoverUnselected]: diaSeleccionado.selected === false
             }"
             @click="SeleccionarDia(diaSeleccionado.id)"
             >{{ diaSeleccionado.name }}</button>
         </div>
         <hr>
-        <div class="cards">
+        <div class="flex place-content-center flex-wrap">
             <DayCard v-for="diaSeleccionado in diaSelected" :diaSeleccionado></DayCard>
         </div>
     </div>
@@ -82,12 +84,6 @@ const SeleccionarDia = (dia: number):void => {
 .title{
     justify-content: center;
     display: flex;
-}
-
-.botones{
-    justify-content: center;
-    display: flex;
-    margin-bottom: 20px;
 }
 
 button{
